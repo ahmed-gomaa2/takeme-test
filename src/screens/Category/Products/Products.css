@@ -1,0 +1,9 @@
+.Products {
+    width: 100%;
+}
+
+.Products__container {
+    width: 90%;
+    display: grid;
+    margin: auto;
+}

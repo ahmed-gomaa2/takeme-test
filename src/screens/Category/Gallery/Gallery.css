@@ -1,0 +1,88 @@
+.Gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+}
+
+.Gallery__swiper {
+    z-index: 4;
+}
+
+.swiper-slide img {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.mySwiper {
+    width: 100%;
+    height: 100%;
+}
+
+.Gallery__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/*.Gallery__arrow {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    color: white;*/
+/*    z-index: 3;*/
+/*    cursor: pointer;*/
+/*    transition: 0.1s;*/
+/*    padding: 10px;*/
+/*    border-radius: 50%;*/
+/*}*/
+
+/*.Gallery__arrow:hover {*/
+/*    scale: 1.1;*/
+/*    background: rgba(255, 255, 255, 0.2);*/
+/*}*/
+
+/*.Gallery__left-arrow {*/
+/*    left: 20px;*/
+/*}*/
+
+/*.Gallery__right-arrow {*/
+/*    right: 20px;*/
+/*}*/
+
+.Gallery img {
+    display: block;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+}
+
+.Gallery__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 1;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

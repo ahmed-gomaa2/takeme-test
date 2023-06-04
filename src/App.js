@@ -1,25 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import {connect} from "react-redux";
+import {getCategories} from "./store/actions/categories.action";
+import {useEffect} from "react";
+import {Routes, Route} from "react-router-dom";
+import Categories from "./screens/Categories/Categories";
+import Category from "./screens/Category/Category";
+import Localization from "./screens/Localization/Localization";
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    props.getCategories();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path={'/'} exact element={<Categories />} />
+        <Route path={'/:id'} exact element={<Category />} />
+        <Route path={'/localization'} exact element={<Localization />} />
+      </Routes>
     </div>
   );
 }
 
-export default App;
+
+const mapStateToProps = state => {
+  return {
+    categories: state.categories.categories
+  }
+}
+export default connect(mapStateToProps, {getCategories}) (App);
